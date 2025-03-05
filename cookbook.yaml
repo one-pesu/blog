@@ -1,0 +1,17 @@
+$globals:
+  version: "8.1"
+
+install:
+  phony: true
+  keep_ts: true
+  requires:
+    - uv.lock
+  commands:
+    - uv sync --frozen
+
+uv.lock:
+  update: true
+  requires:
+    - pyproject.toml
+  commands:
+    - uv lock
